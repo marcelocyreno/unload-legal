@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UnLoad — Privacy Policy</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #161826;
+    --surface: #1e2036;
+    --line: #2c2f4a;
+    --text: #e7e7f0;
+    --muted: #a2a3ba;
+    --accent: #9184d9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 44rem; margin: 0 auto; padding: 3.5rem 1.25rem 5rem; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 1.75rem; margin-bottom: 2.5rem; }
+  .wordmark { font-size: 1.05rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 .75rem; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .5rem; font-weight: 600; letter-spacing: -.01em; }
+  .dates { color: var(--muted); font-size: .875rem; margin: 0; }
+  h2 { font-size: 1.2rem; margin: 2.75rem 0 .85rem; font-weight: 600; letter-spacing: -.005em; }
+  h3 { font-size: 1rem; margin: 1.75rem 0 .5rem; font-weight: 600; color: var(--text); }
+  p, li { color: var(--text); }
+  ul { padding-left: 1.15rem; }
+  li { margin: .4rem 0; }
+  a { color: var(--accent); }
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+  .callout p { margin: .35rem 0; }
+  .callout strong { color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: .94rem; }
+  th, td { text-align: left; padding: .7rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
+  footer { margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
+  code { background: var(--surface); padding: .12em .4em; border-radius: 5px; font-size: .9em; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="wordmark">UnLoad</p>
+    <h1>Privacy Policy</h1>
+    <p class="dates">Effective 1 September 2026 · Last updated 1 September 2026</p>
+  </header>
+
+  <p>UnLoad is a voice note app. You record a thought, and the app transcribes it,
+  summarises it and pulls out any action items. This policy explains exactly what
+  happens to that recording and to everything derived from it.</p>
+
+  <p>It covers the UnLoad mobile app (Android package <code>com.cyreno.unload</code>)
+  and the transcription service it talks to. UnLoad is made by Marcelo Cyreno
+  ("we", "us"), who is the controller of the limited data described below.</p>
+
+  <div class="callout">
+    <p><strong>The short version.</strong></p>
+    <p>Your notes live on your phone. There is no account and no sign-in. We do not use
+    ads, analytics or third-party trackers, and we never sell or share your data.
+    Audio is sent to our service only to be transcribed, and is discarded the moment
+    the transcript comes back — we keep no copy of your audio, your transcripts, your
+    summaries or your tasks.</p>
+  </div>
+
+  <h2>1. What stays on your device</h2>
+
+  <p>Everything UnLoad produces is stored in the app's private storage on your phone,
+  where no other app can read it:</p>
+
+  <ul>
+    <li>your audio recordings (<code>.m4a</code> files);</li>
+    <li>the notes index — transcripts, summaries, action items and topics;</li>
+    <li>your language preference;</li>
+    <li>an install identifier (see below).</li>
+  </ul>
+
+  <p>None of this is backed up to us or synced to any server. If you lose the device or
+  uninstall the app, we cannot recover any of it, because we never had it.</p>
+
+  <h2>2. What leaves your device, and why</h2>
+
+  <p>When a recording finishes, the app sends it over an encrypted HTTPS connection to
+  our transcription service, a Cloudflare Worker running Cloudflare Workers AI. The
+  service transcribes the audio, summarises the transcript, and returns the result to
+  your phone.</p>
+
+  <table>
+    <tr><th>What is sent</th><th>Why</th><th>Kept?</th></tr>
+    <tr>
+      <td>The audio recording</td>
+      <td>Speech-to-text transcription, then summarising</td>
+      <td>No. It is streamed through the service and discarded once the response is sent. It is never written to disk or object storage.</td>
+    </tr>
+    <tr>
+      <td>An install identifier</td>
+      <td>Rate limiting, so one install cannot flood the service</td>
+      <td>Appears in operational logs (see section 3)</td>
+    </tr>
+    <tr>
+      <td>A note identifier</td>
+      <td>Correlating a request with its result when debugging a failure</td>
+      <td>Appears in operational logs (see section 3)</td>
+    </tr>
+    <tr>
+      <td>Your chosen language, if you pinned one</td>
+      <td>Transcribing in the right language</td>
+      <td>Appears in operational logs (see section 3)</td>
+    </tr>
+  </table>
+
+  <h3>About the install identifier</h3>
+
+  <p>On first use, the app generates a random identifier and saves it in a file on your
+  device. It is not derived from your phone, your hardware, your advertising ID or
+  anything about you — it is a random string that identifies an installation, not a
+  person. It is not shared with anyone, and it is not used for advertising or profiling.
+  Deleting and reinstalling the app produces a new one.</p>
+
+  <h2>3. What we log</h2>
+
+  <p>Our service keeps ordinary operational logs so that failures can be diagnosed.
+  A log line records the type of event, the install and note identifiers, the size of the
+  upload in bytes, how long the request took, and any error message. Logs are held by
+  Cloudflare on our behalf and are retained for a short period under Cloudflare's own
+  log retention.</p>
+
+  <p><strong>Logs never contain your audio, your transcript, your summary or your action
+  items.</strong></p>
+
+  <h2>4. Permissions the app asks for</h2>
+
+  <ul>
+    <li><strong>Microphone</strong> — the only way to record a voice note. UnLoad records
+    only while you are actively recording, never in the background, and never without you
+    starting it.</li>
+    <li><strong>Network access</strong> — to send a recording for transcription and receive
+    the result.</li>
+  </ul>
+
+  <h2>5. What we do not do</h2>
+
+  <ul>
+    <li>No accounts, no sign-in, no passwords. The "Sign in with Google" control in the
+    app is not connected to anything yet: it only opens a dialog explaining what sign-in
+    would bring in a future version. It sends no data anywhere.</li>
+    <li>No advertising, no ad networks, no advertising identifiers.</li>
+    <li>No analytics or crash-reporting SDKs, and no third-party trackers of any kind.</li>
+    <li>No selling or sharing of personal information, in the sense of the GDPR, the LGPD,
+    or the CCPA/CPRA.</li>
+    <li>No use of your recordings, transcripts or notes to train AI models. Cloudflare
+    Workers AI processes your audio to produce your result and does not use customer
+    inputs to train its models.</li>
+  </ul>
+
+  <h2>6. Your choices and your rights</h2>
+
+  <ul>
+    <li><strong>Delete a note</strong> — deleting a note in the app deletes its recording
+    along with it.</li>
+    <li><strong>Delete everything</strong> — uninstalling UnLoad removes all of its data
+    from your device. Since we hold no copy, that is a complete erasure.</li>
+    <li><strong>Withdraw microphone access</strong> — you can revoke it at any time in
+    Android Settings. UnLoad cannot record without it.</li>
+  </ul>
+
+  <p>If you are in the EU/EEA or the UK, our processing of the identifiers in section 2
+  rests on our legitimate interest in keeping the service available and debuggable
+  (Article 6(1)(f) GDPR); processing your audio to produce your transcript is necessary
+  to provide the service you asked for (Article 6(1)(b)). If you are in Brazil, the
+  equivalent bases under the LGPD apply. Because we store nothing tied to you, requests
+  to access, correct, port or erase data held by us will normally be answered by
+  confirming that we hold none. You may still contact us, and you have the right to
+  complain to your local data protection authority — in Brazil, the ANPD.</p>
+
+  <h2>7. Children</h2>
+
+  <p>UnLoad is not directed to children and we do not knowingly collect personal
+  information from children. If you believe a child has provided us with personal
+  information, contact us and we will act on it.</p>
+
+  <h2>8. International transfers</h2>
+
+  <p>Our service runs on Cloudflare's global network, so a recording is processed at
+  whichever Cloudflare location is nearest to you and may be processed outside your
+  country. Because the audio is not stored, the transfer lasts only as long as the
+  request. Cloudflare acts as our processor under its own data processing terms.</p>
+
+  <h2>9. Security</h2>
+
+  <p>All traffic between the app and our service is encrypted in transit with TLS.
+  On-device data is held in the app's private storage, protected by Android's app
+  sandbox and by your device's own encryption. No system is perfect, but the strongest
+  protection here is structural: there is no server-side store of your notes to breach.</p>
+
+  <h2>10. Changes to this policy</h2>
+
+  <p>If this policy changes materially — in particular if a future version of UnLoad adds
+  accounts, sync or backup — we will update this page and change the "last updated" date
+  above before the change takes effect, and where the change is significant we will say so
+  in the app.</p>
+
+  <h2>11. Contact</h2>
+
+  <p>Questions, requests or privacy concerns: <a href="mailto:unload@cyreno.com">unload@cyreno.com</a>.</p>
+
+  <footer>
+    UnLoad · com.cyreno.unload · © 2026 Marcelo Cyreno
+  </footer>
+</main>
+</body>
+</html>
