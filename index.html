@@ -55,7 +55,7 @@
   <header>
     <p class="wordmark">UnLoad</p>
     <h1>Privacy Policy</h1>
-    <p class="dates">Effective 1 September 2026 · Last updated 1 September 2026</p>
+    <p class="dates">Effective 1 September 2026 · Last updated 5 September 2026</p>
   </header>
 
   <p>UnLoad is a voice note app. You record a thought, and the app transcribes it,
@@ -68,11 +68,14 @@
 
   <div class="callout">
     <p><strong>The short version.</strong></p>
-    <p>Your notes live on your phone. There is no account and no sign-in. We do not use
-    ads, analytics or third-party trackers, and we never sell or share your data.
-    Audio is sent to our service only to be transcribed, and is discarded the moment
-    the transcript comes back — we keep no copy of your audio, your transcripts, your
-    summaries or your tasks.</p>
+    <p>Your notes live on your phone. We do not use ads, analytics or third-party
+    trackers, and we never sell or share your data. Audio is sent to our service only to
+    be transcribed, and is discarded the moment the transcript comes back — we keep no
+    copy of your audio, your transcripts, your summaries or your tasks.</p>
+    <p>Signing in with Google is optional. Everything above works without it. If you do
+    sign in, the one thing we keep is an account record: your name, your email address,
+    your Google profile picture address, your Google account identifier and which plan
+    you are on. Signing in does not upload a single note.</p>
   </div>
 
   <h2>1. What stays on your device</h2>
@@ -119,7 +122,46 @@
       <td>Transcribing in the right language</td>
       <td>Appears in operational logs (see section 3)</td>
     </tr>
+    <tr>
+      <td><strong>Only if you sign in:</strong> the sign-in token Google gives the app,
+      which carries your name, email address, profile picture address and Google account
+      identifier</td>
+      <td>Creating and recognising your account, and knowing which plan you are on</td>
+      <td><strong>Yes</strong> — see section 2a. The token itself is checked and
+      discarded; the account record is kept</td>
+    </tr>
   </table>
+
+  <h3 id="account">2a. Your account, if you choose to sign in</h3>
+
+  <p>UnLoad works fully without an account: recording, transcription, summaries, your
+  Library and your tasks all run without ever signing in. Signing in exists so that paid
+  plans can be attached to a person rather than to a phone.</p>
+
+  <p>If you do sign in with Google, we store one row about you, and this is all of it:</p>
+
+  <ul>
+    <li>your Google account identifier (a number Google gives us — not your password,
+    and not usable to access your Google account);</li>
+    <li>your email address;</li>
+    <li>your name, as Google gives it;</li>
+    <li>the web address of your Google profile picture;</li>
+    <li>which plan you are on;</li>
+    <li>when the record was created and last updated.</li>
+  </ul>
+
+  <p><strong>Signing in uploads no notes.</strong> No recording, transcript, summary,
+  task or topic is stored with the account or anywhere else on our side — sections 1 and
+  2 are unchanged by it. UnLoad has no sync and no backup; if you sign in on a second
+  phone you will see that phone's notes, not the first one's.</p>
+
+  <p>Signing out on your device removes the sign-in from the app. It does not delete the
+  account record — to have that deleted, contact us (section 11) and we will remove the
+  row.</p>
+
+  <p>The legal basis for keeping it, under the GDPR, is performance of a contract
+  (article 6(1)(b)): without it there is no way to know whose plan is whose. Under the
+  LGPD the equivalent basis is execution of a contract (article 7, II).</p>
 
   <h3>About the install identifier</h3>
 
@@ -153,9 +195,11 @@
   <h2>5. What we do not do</h2>
 
   <ul>
-    <li>No accounts, no sign-in, no passwords. The "Sign in with Google" control in the
-    app is not connected to anything yet: it only opens a dialog explaining what sign-in
-    would bring in a future version. It sends no data anywhere.</li>
+    <li>No passwords. Signing in is optional and goes through Google — we never see,
+    ask for or store a password, and we get no access to your Gmail, Drive, Contacts or
+    anything else in your Google account. We ask Google for your name, email address and
+    profile picture, and nothing more.</li>
+    <li>No sync and no backup. Signing in moves no notes anywhere (section 2a).</li>
     <li>No advertising, no ad networks, no advertising identifiers.</li>
     <li>No analytics or crash-reporting SDKs, and no third-party trackers of any kind.</li>
     <li>No selling or sharing of personal information, in the sense of the GDPR, the LGPD,
@@ -170,8 +214,14 @@
   <ul>
     <li><strong>Delete a note</strong> — deleting a note in the app deletes its recording
     along with it.</li>
-    <li><strong>Delete everything</strong> — uninstalling UnLoad removes all of its data
-    from your device. Since we hold no copy, that is a complete erasure.</li>
+    <li><strong>Delete everything on the device</strong> — uninstalling UnLoad removes
+    all of its data from your device. Since we hold no copy of any note, that is a
+    complete erasure of everything you have recorded.</li>
+    <li><strong>Sign out</strong> — you can sign out at any time in the app's Profile
+    tab. Your notes are untouched by it.</li>
+    <li><strong>Delete your account record</strong> — if you have signed in, contact us
+    (section 11) and we will delete the row described in section 2a. It is the only
+    thing we hold about you.</li>
     <li><strong>Withdraw microphone access</strong> — you can revoke it at any time in
     Android Settings. UnLoad cannot record without it.</li>
   </ul>
@@ -180,10 +230,12 @@
   rests on our legitimate interest in keeping the service available and debuggable
   (Article 6(1)(f) GDPR); processing your audio to produce your transcript is necessary
   to provide the service you asked for (Article 6(1)(b)). If you are in Brazil, the
-  equivalent bases under the LGPD apply. Because we store nothing tied to you, requests
-  to access, correct, port or erase data held by us will normally be answered by
-  confirming that we hold none. You may still contact us, and you have the right to
-  complain to your local data protection authority — in Brazil, the ANPD.</p>
+  equivalent bases under the LGPD apply. If you have signed in, the account record in
+  section 2a rests on Article 6(1)(b) — see that section. If you have not signed in, we
+  store nothing tied to you, and requests to access, correct, port or erase data held by
+  us will be answered by confirming that we hold none. Either way you can contact us to
+  access, correct, port or erase what we hold, and you have the right to complain to
+  your local data protection authority — in Brazil, the ANPD.</p>
 
   <h2>7. Children</h2>
 
@@ -196,14 +248,18 @@
   <p>Our service runs on Cloudflare's global network, so a recording is processed at
   whichever Cloudflare location is nearest to you and may be processed outside your
   country. Because the audio is not stored, the transfer lasts only as long as the
-  request. Cloudflare acts as our processor under its own data processing terms.</p>
+  request. The account record described in section 2a is held in Cloudflare D1, which
+  may likewise be located outside your country. Cloudflare acts as our processor under
+  its own data processing terms.</p>
 
   <h2>9. Security</h2>
 
   <p>All traffic between the app and our service is encrypted in transit with TLS.
   On-device data is held in the app's private storage, protected by Android's app
   sandbox and by your device's own encryption. No system is perfect, but the strongest
-  protection here is structural: there is no server-side store of your notes to breach.</p>
+  protection here is structural: there is no server-side store of your notes to breach.
+  The account record in section 2a is the only thing we hold, and it contains nothing you
+  have said to the app.</p>
 
   <h2>10. Changes to this policy</h2>
 
